@@ -1,6 +1,6 @@
 {
-    "full_name": "Funke Lab",
-    "email": "funkej@hhmi.org",
+    "full_name": "Your Name",
+    "email": "yourname@gmail.com",
     "project_name": "dlmbl project",
     "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
     "project_short_description": "package description.",
