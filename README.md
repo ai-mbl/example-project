@@ -6,18 +6,19 @@
 
 [^1]: Adapted from [The Essentials of Git for Budding Data Scientists](https://www.dasca.org/world-of-data-science/article/the-essentials-of-git-for-budding-data-scientists)
 
-Git is a version control system that allows you to easily track changes in you code while also facilitating collaboration on code-based projects. Git maintains a central repository ("origin" or "remote") while individual users work off a copy that they clone to their local machine ("local" or clone"). When users have made they want so share they save the changes with a "commit" and "push" the changes back to the remote.
+Git is a version control system that allows you to easily track changes in you code while also facilitating collaboration on code-based projects. Git maintains a central repository ("origin" or "remote") while individual users work off a copy that they clone to their local machine ("local" or clone"). When users want to share changes they have made locally, they save the changes with a "commit" and "push" the changes back to the remote.
 
 ### Basic Terminology
 
 Repository
 : Your project folder with versioned files and their history
 
-Branch
-: Each branch Different lines of development that can be used to facilitate independent development and then later merged back together
-
 Commit
-: A snapshot of your project's history with a message describing the version
+: A single point in the Git repository history; the entire history of a repository is represented as a set of interrelated commits. Commits in git are defined relative to other commits,
+so each commit represents a set of changes from the previous version.
+
+Branch
+: A line of development, consisting of a series of commits. There is a "main" branch holding the stable code. Developers can create new branches when adding new features to avoid messing up the main branch until they are done testing, or to avoid conflicting with other developers. When ready, branches are "merged" back into main.
 
 Clone
 : A local copy of a repository
@@ -58,7 +59,7 @@ Git is intended to be used to track relatively small text files. You should neve
 
 ## Specifying your environment
 
-In order to ensure that your group members (and future you) can run your code, we will specify the set of python packages that are required for your code to run. It's also a good idea to make a note of what python version you are working with and cruft will prompt you to pick a python version when you are creating your project.
+In order to ensure that your group members (and future you) can run your code, we will specify the set of python packages that are required for your code to run. It's also a good idea to make a note of what python version you are working with and cruft will prompt you to pick a python version when you are creating your project. We recommend choosing python 3.10 or greater, unless you need to use an older version for one of your dependencies.
 
 The requirements for your code are specified in the `pyproject.toml` file in the dependencies section, which will look something like this:
 ```toml
@@ -69,12 +70,6 @@ dependencies = [
 ]
 ```
 Commonly you will end up adding packages for visualization (`matplotlib` or `napari`) and data loading (`zarr`). Generally if you find yourself installing a package on the fly, remember to add it to your dependencies section.
-
-## Writing and installing your code
-
-During the project phase, we will collect any reusable code into a python module. You can find the first essential file in your module at `{{ project name }}/src/__init__.py`. We'll discuss when to add code into a module later, but in the meantime we need to install our module so that the code can be imported from anywhere.
-
-From your project environment, you will run `pip install -e .`. The `-e` flag tells pip to install the package in editable mode which means that any changes you make to the code will be reflected in your environment. The `.` tells pip where to look (the current directory) for the `pyproject.toml` file which contains the configuration of your package including the dependencies that you have specified.
 
 ## The role of notebooks
 
@@ -92,7 +87,7 @@ model_path = f'ModelName-{tstamp}'
 
 ### When should code become src code
 
-If you find yourself copying and pasting the same code from one notebook to another, it's time to move your code into a python module so that you can import it wherever you need it. In the  `src/project_name` folder, create a new file for your code. If your code is not already in a standalone function, rewrite it as a function and save it into your new file.
+If you find yourself copying and pasting the same code from one notebook to another, it's time to move your code into a python module so that you can import it wherever you need it. You can find the first essential file in your module at `{{ project name }}/src/__init__.py`. The `__init__.py` is actually what makes something an installable python module. To add code to the module, in the  `src/project_name` folder, create a new file for your code. If your code is not already in a standalone function, rewrite it as a function and save it into your new file.
 
 ---
 
@@ -118,3 +113,12 @@ You are now ready to invite your group members to collaborate on your github rep
 ### Cloning your project repo
 
 If you did not directly set up the project repo, you will need to clone it onto your remote machine. You can use the button with the option "Clone Repository" to look up your project repo once you have been added as a collaborator.
+
+### Installing your repo
+
+During the project phase, we will collect any reusable code into a python module. To import the resuable code from the module, you will need to install the module into your evironment. 
+
+First you will need to make a conda environment for your project and activate it. Then, from the folder containing your repository, run `pip install -e .`. The ` -e` flag tells pip to install the package in editable mode, which means that any changes you make to the code will be reflected in your environment. The `.` tells pip where to look (the current directory) for the `pyproject.toml` file which contains the configuration of your package including the dependencies that you have specified.
+
+Now, you can import your functions using `from <package_name>.<file_name> import <function_name>`
+at the top of your scripts and other files in the module. Any changes to the function will be automatically updated in the environment, and in notebooks if the autoreload extension is active.
