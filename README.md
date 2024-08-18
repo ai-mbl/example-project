@@ -71,12 +71,6 @@ dependencies = [
 ```
 Commonly you will end up adding packages for visualization (`matplotlib` or `napari`) and data loading (`zarr`). Generally if you find yourself installing a package on the fly, remember to add it to your dependencies section.
 
-## Writing and installing your code
-
-During the project phase, we will collect any reusable code into a python module. You can find the first essential file in your module at `{{ project name }}/src/__init__.py`. We'll discuss when to add code into a module later, but in the meantime we need to install our module so that the code can be imported from anywhere.
-
-From your project environment, you will run `pip install -e .`. The ` -e` flag tells pip to install the package in editable mode which means that any changes you make to the code will be reflected in your environment. The `.` tells pip where to look (the current directory) for the `pyproject.toml` file which contains the configuration of your package including the dependencies that you have specified.
-
 ## The role of notebooks
 
 Notebooks are a great place to experiment, explore data and initially develop new code. In order to stay organized and keep track of your progress, we suggest treating each notebook like an entry in a lab notebook. Consider including the date in the name of the notebook and starting your notebook with a markdown cell that describes what you are working on in that notebook. Future you will thank past you when you are looking back through your notebooks and trying to figure out what you were thinking and working on.
@@ -93,7 +87,7 @@ model_path = f'ModelName-{tstamp}'
 
 ### When should code become src code
 
-If you find yourself copying and pasting the same code from one notebook to another, it's time to move your code into a python module so that you can import it wherever you need it. In the  `src/project_name` folder, create a new file for your code. If your code is not already in a standalone function, rewrite it as a function and save it into your new file.
+If you find yourself copying and pasting the same code from one notebook to another, it's time to move your code into a python module so that you can import it wherever you need it. You can find the first essential file in your module at `{{ project name }}/src/__init__.py`. The `__init__.py` is actually what makes something an installable python module. To add code to the module, in the  `src/project_name` folder, create a new file for your code. If your code is not already in a standalone function, rewrite it as a function and save it into your new file.
 
 ---
 
@@ -119,3 +113,12 @@ You are now ready to invite your group members to collaborate on your github rep
 ### Cloning your project repo
 
 If you did not directly set up the project repo, you will need to clone it onto your remote machine. You can use the button with the option "Clone Repository" to look up your project repo once you have been added as a collaborator.
+
+### Installing your repo
+
+During the project phase, we will collect any reusable code into a python module. To import the resuable code from the module, you will need to install the module into your evironment. 
+
+First you will need to make a conda environment for your project and activate it. Then, from the folder containing your repository, run `pip install -e .`. The ` -e` flag tells pip to install the package in editable mode, which means that any changes you make to the code will be reflected in your environment. The `.` tells pip where to look (the current directory) for the `pyproject.toml` file which contains the configuration of your package including the dependencies that you have specified.
+
+Now, you can import your functions using `from <package_name>.<file_name> import <function_name>`
+at the top of your scripts and other files in the module. Any changes to the function will be automatically updated in the environment, and in notebooks if the autoreload extension is active.
