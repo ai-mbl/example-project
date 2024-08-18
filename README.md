@@ -95,7 +95,7 @@ If you find yourself copying and pasting the same code from one notebook to anot
 
 ### Connecting to Github through VSCode
 
-For the purposes of this course, we recommend connecting to Github through the VSCode extension Github Pull Requests. After connecting to your remote machine through VSCode, you can install the Github Pull Requests extension from the marketplace. After it is installed, open the Github Pull Requests extension from the sidebar and select the "Sign In" button in order to authenticate VSCode to use your Github account.
+For the purposes of this course, we recommend connecting to Github through the VSCode extension Github Pull Requests. After connecting to your remote machine through VSCode, you can install the Github Pull Requests extension from the marketplace. After it is installed, open the Github Pull Requests extension from the sidebar and select the "Sign In" button in order to authenticate VSCode to use your Github account. Once we are signed in to Github through the Github Pull Requests extension, we will just use the Source tab in VSCode.
 
 ### Creating the project repo
 
@@ -116,7 +116,7 @@ If you did not directly set up the project repo, you will need to clone it onto 
 
 ### Installing your repo
 
-During the project phase, we will collect any reusable code into a python module. To import the resuable code from the module, you will need to install the module into your evironment. 
+During the project phase, we will collect any reusable code into a python module. To import the resuable code from the module, you will need to install the module into your evironment.
 
 First you will need to make a conda environment for your project and activate it. Then, from the folder containing your repository, run `pip install -e .`. The ` -e` flag tells pip to install the package in editable mode, which means that any changes you make to the code will be reflected in your environment. The `.` tells pip where to look (the current directory) for the `pyproject.toml` file which contains the configuration of your package including the dependencies that you have specified.
 
