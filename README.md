@@ -97,6 +97,12 @@ If you find yourself copying and pasting the same code from one notebook to anot
 
 For the purposes of this course, we recommend connecting to Github through the VSCode extension Github Pull Requests. After connecting to your remote machine through VSCode, you can install the Github Pull Requests extension from the marketplace. After it is installed, open the Github Pull Requests extension from the sidebar and select the "Sign In" button in order to authenticate VSCode to use your Github account. Once we are signed in to Github through the Github Pull Requests extension, we will just use the Source tab in VSCode.
 
+We need to do one last configuration step before we are ready to use git from VSCode. Open a terminal in VSCode and run the following commands substituting in your information as needed.
+```bash
+git config --global user.email "your-email@email.com"
+git config --global user.name "Your Name"
+```
+
 ### Creating the project repo
 
 Only one person needs to do these initial steps
