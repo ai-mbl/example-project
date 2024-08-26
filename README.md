@@ -2,7 +2,7 @@
 
 [Cookiecutter](https://github.com/cookiecutter/cookiecutter) and [cruft](https://cruft.github.io/cruft/) are tools that make it easy to generate projects from reusable templates. This repo serves as a template for your project and offers some advice on best practices for deep learning and data science projects.
 
-## Git for version control
+## Git for version control[^1]
 
 [^1]: Adapted from [The Essentials of Git for Budding Data Scientists](https://www.dasca.org/world-of-data-science/article/the-essentials-of-git-for-budding-data-scientists)
 
@@ -51,11 +51,24 @@ When you are working on a project versioned with git you will always follow the 
 5. Run `git commit -m "<your commit message>"` to save your staged changes. Write a short message describing the changes you made in this commit.
 6. `git push` to share the new commit with the remote repository
 
+### Commit messages
+
+Your commit messages serve as a record of your changes and though process behind them. Future you always benefits from good commit messages! Read more [here](https://cbea.ms/git-commit/) about how to write good commit messages.
+
+### Branching
+
 When you are working in a group, each group member will usually develop code on their own branch. When a feature is complete, the branch can be merged into the `main` branch to share the changes with the rest of the group. To create a new branch run `git checkout -b <branch-name>`. Your branch name can describe the feature you are working on and include your username to identify the branch. For example, `username/metrics` or `username/dataloader`.
 
 ### What files can you track with git
 
 Git is intended to be used to track relatively small text files. You should never add data or models to your git repository! Most repositories will include a `.gitignore` file with includes a list of file patterns that git should exclude from tracking, such as `*.zarr`, `*.tiff`, etc.
+
+### Learn more about git
+
+Your TAs are happy to answer questions about and help resolve problems with git during the course. You can learn more about git on your own through the following resources:
+
+- [Learn Git Branching](https://learngitbranching.js.org/): An interactive visual website that teaches you how to use git.
+- [`git gud`](https://github.com/benthayer/git-gud): An interactive CLI tool that features a progression of levels that teach you git skills.
 
 ## Specifying your environment
 
@@ -71,7 +84,25 @@ dependencies = [
 ```
 Commonly you will end up adding packages for visualization (`matplotlib` or `napari`) and data loading (`zarr`). Generally if you find yourself installing a package on the fly, remember to add it to your dependencies section.
 
-## The role of notebooks
+## Organizing your code
+
+### Common terminology[^2]
+
+[^2]: Adapted from https://realpython.com/lessons/scripts-modules-packages-and-libraries/
+
+Script
+: A Python file that’s intended to be run directly. They often contain code written outside the scope of classes or functions and might import modules, packages and libraries.
+
+Module
+: A Python file that’s intended to be imported into scripts or other modules. It often defines classes, functions, and variables intended to be used in other files that import it.
+
+Package
+: A collection of related modules that work together to provide certain functionality. These modules are contained within a folder and can be imported just like any other modules. This folder will often contain a special `__init__` file that tells Python it’s a package, potentially containing more modules nested within subfolders.
+
+Library
+: An umbrella term that loosely means “a bundle of code.” These can have tens or even hundreds of individual modules that can provide a wide range of functionality.
+
+### The role of notebooks
 
 Notebooks are a great place to experiment, explore data and initially develop new code. In order to stay organized and keep track of your progress, we suggest treating each notebook like an entry in a lab notebook. Consider including the date in the name of the notebook and starting your notebook with a markdown cell that describes what you are working on in that notebook. Future you will thank past you when you are looking back through your notebooks and trying to figure out what you were thinking and working on.
 
@@ -128,3 +159,9 @@ First you will need to make a conda environment for your project and activate it
 
 Now, you can import your functions using `from <package_name>.<file_name> import <function_name>`
 at the top of your scripts and other files in the module. Any changes to the function will be automatically updated in the environment, and in notebooks if the autoreload extension is active.
+
+---
+
+# Additional Resources
+
+[Cookiecutter for Data Science](https://cookiecutter-data-science.drivendata.org/): This is a more elaborate cookiecutter repo that is set up for a data science project. There are components that you don't need for your DL@MBL projects, but this is a great resource for features you might want to include in the future.
