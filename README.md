@@ -53,7 +53,7 @@ When you are working on a project versioned with git you will always follow the 
 
 ### Commit messages
 
-Your commit messages serve as a record of your changes and though process behind them. Future you always benefits from good commit messages! Read more [here](https://cbea.ms/git-commit/) about how to write good commit messages.
+Your commit messages serve as a record of your changes and thought process behind them. Future you always benefits from good commit messages! Read more [here](https://cbea.ms/git-commit/) about how to write good commit messages.
 
 ### Branching
 

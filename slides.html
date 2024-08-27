@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: middle, center
+
+# Best Practices for Projects
+
+---
+
+class: middle, center
+
+# ~~Best Practices for Projects~~
+
+# Good Enough Practices for Projects
+
+---
+
+# Purpose
+
+- Share advice on how to organize your work during the project phase
+- Introduce a template for organizing your project
+- Introduce git for version control
+
+---
+
+# Notebooks
+
+.center[![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn5qoh2GS_WbBtD2Zz6I9z8JaagZ9zEoLlNw&s)]
+
+---
+
+# Notebooks
+
+- Treat each notebook like an experiment in a lab notebook
+- Give your file outputs unique names so that you don't overwrite them
+
+```python
+import datetime
+
+# Generate a time stamp with YYYYMMDD-HHMMSS
+tstamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+model_path = f'ModelName-{tstamp}'
+```
+
+---
+
+# Alternatives to notebooks -- basic terminology
+
+**Script**: A Python file that’s intended to be run directly. They often contain code written outside the scope of classes or functions and might import modules, packages and libraries.
+
+--
+
+**Module**: A Python file that’s intended to be imported into scripts or other modules. It often defines classes, functions, and variables intended to be used in other files that import it.
+
+--
+
+**Package**: A collection of related modules that work together to provide certain functionality. These modules are contained within a folder and can be imported just like any other modules. This folder will often contain a special `__init__` file that tells Python it’s a package, potentially containing more modules nested within subfolders.
+
+--
+
+**Library**: An umbrella term that loosely means “a bundle of code.” These can have tens or even hundreds of individual modules that can provide a wide range of functionality.
+
+Adapted from [RealPython](https://realpython.com/lessons/scripts-modules-packages-and-libraries/)
+
+---
+
+# Project Organization
+
+We made a project based on the knowledge-extraction exercise as an example.
+
+```
+knowledge-extraction/
+├── notebooks/
+│   └── 2024-08-26-test-model.ipynb
+├── scripts/
+│   └── train.py
+│   └── validate.py
+├── src/
+│   └── knowledge_extraction/
+│       └── __init__.py
+│       └── data.py
+│       └── model.py
+├── .gitignore
+├── README.md
+└── pyproject.toml
+```
+
+???
+
+Switch to VSCode to explore the project structure
+- Modules
+- Scripts -- if main
+- notebook
+
+---
+
+# Setting up your project
+
+- Use the `example-project` repo as a template for your project
+- The package `cruft` will copy the template for you and prompt you to fill in information specific to your project
+
+From your home directory:
+
+```bash
+pip install cruft
+cruft create https://github.com/dlmbl/example-project
+```
+
+---
+
+# Specifying your environment
+
+- What do you need to make your code run?
+- Pick a python version >=3.10 unless you have a dependency that needs an older version
+- List the packages you use in your code in your `pyproject.toml`
+- Install your code and its dependencies with `pip install -e .`
+
+```toml
+[project]
+name = "knowledge-extraction"
+requires-python = ">=3.10"
+dependencies = [
+    'matplotlib',
+    'torch',
+    'torchvision',
+    'tqdm',
+    'scikit-learn',
+    'seaborn'
+]
+```
+
+---
+
+# Why use git for version control?
+
+- Keep a record of your work and thought process over time
+- Return to a previous version when something breaks
+- Easily collaborate with others and develop code in parallel
+
+---
+
+# Git commits
+
+.center[<img src="assets/commits.png" width=500>]
+
+- Each git commit is a snapshot of your work
+- Each commit represents a set of changes from the previous version
+
+---
+
+# Git commits
+
+.center[<img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*zj-d8TopjgBml2QVM-672w.jpeg" height=300>]
+
+- Your commit messages serve as a record of your changes and thought process behind them
+
+Image from [A Visual Introduction to Git](https://medium.com/@ashk3l/a-visual-introduction-to-git-9fdca5d3b43a)
+
+---
+
+# Making a commit
+
+.center[<img src="assets/workflow.png" width=700>]
+
+1. Make some changes
+2. Run `git status` or use the VSCode Source tab to check which files have changed
+3. Tell git to track the changes by adding each file with `git add path/to/file` or the plus button from the Source tab
+4. Make your commit with a note about why you made your changes with `git commit -m "your commit message"` or from the Source tab
+
+---
+
+# Sharing your changes
+
+.center[<img src="assets/remote.png" width=500>]
+
+__Repository__: Your project folder with versioned files and their history
+
+__Clone__: A local copy of a repository
+
+__Remote__: A copy of your code hosted online (usually by Github)
+
+---
+
+# Sharing your changes
+
+.center[<img src="assets/push-pull.png" width=500>]
+
+- `git push` to share your changes with the remote
+- `git pull` to retrieve changes others have made from the remote
+- If you have made local changes that conflict with changes in the remote, git will ask you how you want to resolve the conflict
+
+---
+
+# Collaborating with git
+
+.center[<img src="assets/branches.png" width=300>]
+
+- Branches allow group members to work in parallel on different features in the code
+
+---
+
+# Setting up git in VSCode
+
+- From the extensions tab, search for and install the Github Pull Request extension
+- From the new Github Pull Requests tab, click the sign in button to log in to your Github account
+- From the terminal, run the following configuration commands
+
+```bash
+git config --global user.email "your-email@email.com"
+git config --global user.name "Your Name"
+```
+
+# Learn more about git
+
+- Ask your TA during the project phase!
+- Learn Git Branching: https://learngitbranching.js.org/
+    - Interactive visual tutorial for git on the web
+- `git gud`: https://github.com/benthayer/git-gud
+    - Terminal based tutorial for learning git
+
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
