@@ -10,37 +10,38 @@ Git is a version control system that allows you to easily track changes in you c
 
 ### Basic Terminology
 
-Repository
-: Your project folder with versioned files and their history
+![](assets/remote.png)
 
-Commit
-: A single point in the Git repository history; the entire history of a repository is represented as a set of interrelated commits. Commits in git are defined relative to other commits,
+__Repository__: Your project folder with versioned files and their history
+
+__Clone__: A local copy of a repository
+
+__Remote__: A copy of your code hosted online (usually by Github)
+
+![](assets/commits.png)
+
+__Commit__: A single point in the Git repository history; the entire history of a repository is represented as a set of interrelated commits. Commits in git are defined relative to other commits,
 so each commit represents a set of changes from the previous version.
 
-Branch
-: A line of development, consisting of a series of commits. There is a "main" branch holding the stable code. Developers can create new branches when adding new features to avoid messing up the main branch until they are done testing, or to avoid conflicting with other developers. When ready, branches are "merged" back into main.
+![](assets/branches.png)
 
-Clone
-: A local copy of a repository
+__Branch__: A line of development, consisting of a series of commits. There is a "main" branch holding the stable code. Developers can create new branches when adding new features to avoid messing up the main branch until they are done testing, or to avoid conflicting with other developers. When ready, branches are "merged" back into main.
 
-Pull
-: Retrieve changes from the remote and merge them into the local clone
+![](assets/push-pull.png)
 
-Push
-: Share changes from the local clone to the remote
+__Pull__: Retrieve changes from the remote and merge them into the local clone
 
-Merge
-: Combine changes from two branches
+__Push__: Share changes from the local clone to the remote
 
-Checkout
-: Switch to a different branch or a previous commit
+__Merge__: Combine changes from two branches
 
-Fetch
-: Download changes from the remote without applying them to the local clone
+__Checkout__: Switch to a different branch or a previous commit
+
+__Fetch__: Download changes from the remote without applying them to the local clone
 
 ### Basic git workflow
 
-![git workflow](https://storage.googleapis.com/noble-mimi/noble_ebooks/front-end-tools-and-portfolio-edition1.0-1/img/git-overall-workflow-diagram.png)
+![](assets/workflow.png)
 
 When you are working on a project versioned with git you will always follow the same basic routine.
 
@@ -53,7 +54,7 @@ When you are working on a project versioned with git you will always follow the 
 
 ### Commit messages
 
-Your commit messages serve as a record of your changes and though process behind them. Future you always benefits from good commit messages! Read more [here](https://cbea.ms/git-commit/) about how to write good commit messages.
+Your commit messages serve as a record of your changes and thought process behind them. Future you always benefits from good commit messages! Read more [here](https://cbea.ms/git-commit/) about how to write good commit messages.
 
 ### Branching
 
@@ -90,17 +91,13 @@ Commonly you will end up adding packages for visualization (`matplotlib` or `nap
 
 [^2]: Adapted from https://realpython.com/lessons/scripts-modules-packages-and-libraries/
 
-Script
-: A Python file that’s intended to be run directly. They often contain code written outside the scope of classes or functions and might import modules, packages and libraries.
+__Script__: A Python file that’s intended to be run directly. They often contain code written outside the scope of classes or functions and might import modules, packages and libraries.
 
-Module
-: A Python file that’s intended to be imported into scripts or other modules. It often defines classes, functions, and variables intended to be used in other files that import it.
+__Module__: A Python file that’s intended to be imported into scripts or other modules. It often defines classes, functions, and variables intended to be used in other files that import it.
 
-Package
-: A collection of related modules that work together to provide certain functionality. These modules are contained within a folder and can be imported just like any other modules. This folder will often contain a special `__init__` file that tells Python it’s a package, potentially containing more modules nested within subfolders.
+__Package__: A collection of related modules that work together to provide certain functionality. These modules are contained within a folder and can be imported just like any other modules. This folder will often contain a special `__init__` file that tells Python it’s a package, potentially containing more modules nested within subfolders.
 
-Library
-: An umbrella term that loosely means “a bundle of code.” These can have tens or even hundreds of individual modules that can provide a wide range of functionality.
+__Library__: An umbrella term that loosely means “a bundle of code.” These can have tens or even hundreds of individual modules that can provide a wide range of functionality.
 
 ### The role of notebooks
 
