@@ -68,15 +68,11 @@ model_path = f'ModelName-{tstamp}'
 
 --
 
-**Module**: A Python file that’s intended to be imported into scripts or other modules. It often defines classes, functions, and variables intended to be used in other files that import it.
+**Module**: A Python file or directory of python files that’s intended to be imported into scripts or other modules. It often defines classes, functions, and variables intended to be used in other files that import it. A folder of python files will often contain a special `__init__` file that tells Python that there are modules within it.
 
 --
 
-**Package**: A collection of related modules that work together to provide certain functionality. These modules are contained within a folder and can be imported just like any other modules. This folder will often contain a special `__init__` file that tells Python it’s a package, potentially containing more modules nested within subfolders.
-
---
-
-**Library**: An umbrella term that loosely means “a bundle of code.” These can have tens or even hundreds of individual modules that can provide a wide range of functionality.
+**Package/Library**: An umbrella term that loosely means “a bundle of code.” These can have tens or even hundreds of individual modules that can provide a wide range of functionality. Dependencies or requirements are defined and can be installed together with the package itself.
 
 Adapted from [RealPython](https://realpython.com/lessons/scripts-modules-packages-and-libraries/)
 
@@ -102,13 +98,6 @@ knowledge-extraction/
 ├── README.md
 └── pyproject.toml
 ```
-
-???
-
-Switch to VSCode to explore the project structure
-- Modules
-- Scripts -- if main
-- notebook
 
 ---
 
