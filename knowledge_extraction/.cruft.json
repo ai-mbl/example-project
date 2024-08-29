@@ -1,0 +1,17 @@
+{
+  "template": "https://github.com/dlmbl/example-project",
+  "commit": "4fff80ba77169cfa6592cf6c9473e6ca98be4da2",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "full_name": "Diane Adjavon",
+      "email": "adjavond [at] janelia [dot] hhmi [dot] org",
+      "project_name": "knowledge extraction",
+      "project_slug": "knowledge_extraction",
+      "project_short_description": "A repo to extract knowledge from a classifier",
+      "default_python": "3.10",
+      "_template": "https://github.com/dlmbl/example-project"
+    }
+  },
+  "directory": null
+}
