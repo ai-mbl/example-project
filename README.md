@@ -125,11 +125,19 @@ If you find yourself copying and pasting the same code from one notebook to anot
 
 For the purposes of this course, we recommend connecting to Github through the VSCode extension Github Pull Requests. After connecting to your remote machine through VSCode, you can install the Github Pull Requests extension from the marketplace. After it is installed, open the Github Pull Requests extension from the sidebar and select the "Sign In" button in order to authenticate VSCode to use your Github account. Once we are signed in to Github through the Github Pull Requests extension, we will just use the Source tab in VSCode.
 
-We need to do one last configuration step before we are ready to use git from VSCode. Open a terminal in VSCode and run the following commands substituting in your information as needed.
+We need to do one last configuration step before we are ready to use git from VSCode. Open a terminal in VSCode that is connected to your remote machine and run the following commands substituting in your information as needed.
 ```bash
 git config --global user.email "your-email@email.com"
 git config --global user.name "Your Name"
 ```
+
+### Creating SSH Keys
+
+If you have any issues with connecting to Github through VSCode, you can instead create an ssh key. For the course, you need to make an ssh key on your remote machine. From a terminal connected to your remote machine, follow these instructions to setup a key and connect it to github:
+- [Generating a new ssh key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key)
+- [Adding your ssh key to the ssh agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)
+- [Adding a new ssh key to your account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account#adding-a-new-ssh-key-to-your-account)
+- [Testing your ssh connection](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/testing-your-ssh-connection)
 
 ### Creating the project repo
 
