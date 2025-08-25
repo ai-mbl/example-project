@@ -47,7 +47,7 @@ When you are working on a project versioned with git you will always follow the 
 
 1. Run `git pull` to check if there are any changes to the remote that need to be applied to your local clone
 2. Make changes to your code
-3. When you are ready to save your changes, run `git status` to check with files have changed
+3. When you are ready to save your changes, run `git status` to check which files have changed
 4. In order to tell git to track the changes, they need to be "staged". Run `git add path/to/file` to stage your changes for inclusion in the next commit
 5. Run `git commit -m "<your commit message>"` to save your staged changes. Write a short message describing the changes you made in this commit.
 6. `git push` to share the new commit with the remote repository
@@ -115,7 +115,7 @@ model_path = f'ModelName-{tstamp}'
 
 ### When should code become src code
 
-If you find yourself copying and pasting the same code from one notebook to another, it's time to move your code into a python module so that you can import it wherever you need it. You can find the first essential file in your module at `{{ project name }}/src/__init__.py`. The `__init__.py` is actually what makes something an installable python module. To add code to the module, in the  `src/project_name` folder, create a new file for your code. If your code is not already in a standalone function, rewrite it as a function and save it into your new file.
+If you find yourself copying and pasting the same code from one notebook to another, it's time to move your code into a python module so that you can import it wherever you need it. You can find the first essential file in your module at `{{ project name }}/src/__init__.py`. The `__init__.py` is actually what makes something an importable python module. To add code to the module, in the  `src/project_name` folder, create a new file for your code. If your code is not already in a standalone function, rewrite it as a function and save it into your new file.
 
 ---
 
@@ -146,7 +146,7 @@ Only one person needs to do these initial steps
 2. Create your project repo using cruft. It will prompt you for series of values that it will use to complete the template.
 ```bash
 pip install cruft
-cruft create https://github.com/dlmbl/example-project
+cruft create https://github.com/ai-mbl/example-project
 ```
 3. Open the source control extension and select "Publish to Github" button.
 
@@ -169,4 +169,4 @@ at the top of your scripts and other files in the module. Any changes to the fun
 
 # Additional Resources
 
-[Cookiecutter for Data Science](https://cookiecutter-data-science.drivendata.org/): This is a more elaborate cookiecutter repo that is set up for a data science project. There are components that you don't need for your DL@MBL projects, but this is a great resource for features you might want to include in the future.
+[Cookiecutter for Data Science](https://cookiecutter-data-science.drivendata.org/): This is a more elaborate cookiecutter repo that is set up for a data science project. There are components that you don't need for your AI@MBL projects, but this is a great resource for features you might want to include in the future.
