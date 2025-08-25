@@ -1,5 +1,7 @@
 # example-project
 
+There is a slide deck based version of this content available [here](https://ai-mbl.github.io/example-project/#1).
+
 [Cookiecutter](https://github.com/cookiecutter/cookiecutter) and [cruft](https://cruft.github.io/cruft/) are tools that make it easy to generate projects from reusable templates. This repo serves as a template for your project and offers some advice on best practices for deep learning and data science projects.
 
 ## Git for version control[^1]
